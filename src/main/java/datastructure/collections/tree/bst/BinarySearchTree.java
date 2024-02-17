@@ -1,0 +1,88 @@
+package datastructure.collections.tree.bst;
+
+public class BinarySearchTree {
+
+    TreeNode root;
+
+    public boolean insert(int value){
+        // create new node
+        TreeNode newNode = new TreeNode(value);
+        if(root == null){
+            root = newNode;
+            return true;
+        }
+        TreeNode temp = root;
+        while(true){
+            if(newNode.value == temp.value) return false;
+            if(newNode.value < temp.value ){
+                if(temp.left == null){
+                    temp.left = newNode;
+                    return true;
+                }
+                temp = temp.left;
+            }else{
+                if(temp.right == null){
+                    temp.right = newNode;
+                    return true;
+                }
+                temp = temp.right;
+            }
+        }
+    }
+
+    public boolean contains(int value){
+        if(root == null) return false;
+        TreeNode temp = root;
+        while(temp != null){
+            if(value < temp.value){
+                temp = temp.left;
+            }else if(value > temp.value){
+                temp = temp.right;
+            }else{
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int maxInBST(){
+        if(root == null){
+            System.out.println("BST is empty");
+            return Integer.MIN_VALUE;
+        }
+        TreeNode currNode = root;
+        while(currNode.right != null){
+            currNode = currNode.right;
+        }
+        return currNode.value;
+    }
+
+    public TreeNode inorderSuccessor(TreeNode node) {
+        if (node == null)
+            return null;
+
+        // If the right subtree of the node is not null,
+        // then the successor is the leftmost node in the right subtree
+        if (node.right != null) {
+            TreeNode current = node.right;
+            while (current.left != null) {
+                current = current.left;
+            }
+            return current;
+        }
+
+        // If the right subtree of the node is null,
+        // then the successor is one of the ancestors of the node
+        TreeNode successor = null;
+        TreeNode ancestor = root;
+        while (ancestor != node) {
+            if (node.value < ancestor.value) {
+                successor = ancestor;
+                ancestor = ancestor.left;
+            } else {
+                ancestor = ancestor.right;
+            }
+        }
+        return successor;
+    }
+}

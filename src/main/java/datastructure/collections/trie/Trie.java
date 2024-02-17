@@ -1,7 +1,6 @@
-package interview.companies.here.dsa.revision.trie;
+package datastructure.collections.trie;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class Trie {
@@ -12,26 +11,16 @@ public class Trie {
         root = new TrieNode();
     }
 
-    private static class TrieNode{
-        HashMap<Character, TrieNode> children;
-        boolean isWord;
-
-        public TrieNode(){
-            this.children = new HashMap<>();
-            this.isWord = false;
-        }
-    }
-
     public void insert(String word){
         TrieNode node = root;
-        for(char c : word.toCharArray()){
-            node.children.putIfAbsent(c, new TrieNode());
-            node = node.children.get(c);
+        for(Character cha : word.toCharArray()){
+            node.children.putIfAbsent(cha, new TrieNode());
+            node = node.children.get(cha);
         }
         node.isWord = true;
     }
 
-    public List<String> search(String prefix){
+        public List<String> search(String prefix){
         List<String> suggestions = new ArrayList<>();
         TrieNode node = root;
         for(char c : prefix.toCharArray()){
@@ -77,5 +66,4 @@ public class Trie {
         }
         return false;
     }
-    
 }

@@ -8,6 +8,7 @@ public class Graph {
     int V;
     LinkedList<Integer>[] adj;
 
+    @SuppressWarnings("unchecked")
     Graph(int v) {
         V = v;
         adj = new LinkedList[v];

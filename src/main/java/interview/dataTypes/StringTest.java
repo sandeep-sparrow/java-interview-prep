@@ -4,6 +4,7 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class StringTest {
+    @SuppressWarnings("unchecked")
     public static void main(String[] args) {
         String s1 = "HelloWorld";
         String s2 = "HelloWorld";
@@ -19,6 +20,7 @@ public class StringTest {
         Integer a = new Integer(4);
         Integer b = new Integer(8);
         Integer c = new Integer(4);
+        @SuppressWarnings("rawtypes")
         Set hs = new LinkedHashSet();
         hs.add(a);
         hs.add(b);

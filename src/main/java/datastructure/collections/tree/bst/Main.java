@@ -1,6 +1,4 @@
-package datastructure.collections.tree.binarysearchtree;
-
-import datastructure.collections.tree.binarysearchtree.BinarySearchTree;
+package datastructure.collections.tree.bst;
 
 public class Main {
 
