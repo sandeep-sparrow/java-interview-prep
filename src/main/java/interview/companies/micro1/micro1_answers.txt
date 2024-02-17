@@ -1,0 +1,46 @@
+Q1) Discuss the possible problems with concurrent programs?
+
+1. Race Condition / Data Race
+2. Deadlock
+
+    Task 1
+    Task 2    -> waiting for shared resource -> Thread 4 -> waiting for shared resource -> Task 5
+    Task 3
+3. Live lock
+
+Q2) Can you discuss how the Java Memory Model affects concurrent programming in Java,
+    and how volatile keyword is used in this context?
+
+JMM defines the rules on how thread interact with memory and provides set of rules
+that govern the visibility of shared data resources between multiple threads.
+
+thus understanding JMM is crucial for writing correct and reliable concurrent programs.
+
+Basics:
+1. Shared memory:
+    threads -> share data -> main memory (heap)
+    each thread may have it own local cache, and changes to variable may not be
+    immediately visible to other threads.
+
+2. Thread Interaction:
+    inorder to maintain consistency, JMM defines the set of rules about when changes
+    made to the variable become visible to other threads
+    (when the local cache flush/push to RAM/Heap should happen)
+
+Synchronization mechanism:
+
+1. synchronized block and methods:
+    the synchronized keywords is used to create mutually exclusive region in code.
+    ensuring that only one thread at a time can execute a block or method on a particular object
+
+2. Volatile Keyword:
+    when a variable is declared as volatile, it guarantees visibility and ordering constraints
+    without the need for explicit locking.
+
+Use case for volatile variables?
+1. Commonly used in Flags and Status Indicator.
+2. Double-Check Idiom for Singleton Pattern.
+
+in summary, JMM establishes rules for thread interaction and memory visibility.
+
+

@@ -1,0 +1,26 @@
+DSA coding round:
+
+    code generic stack (push and pop methods)
+    code generic queue (dequeue and enqueue methods)
+
+
+Java Core:
+
+    N/A 
+
+Spring boot:
+
+    Scenario based:
+        How did you implement swagger API open API document in your application?
+
+    what are annotations in spring boot:
+    
+React:
+
+    1. Example different types of react hook?
+    2. what are HOC or decorators in react explain it's use case?
+    3. what is useState?
+
+Database:
+
+    1. what is acid properites.

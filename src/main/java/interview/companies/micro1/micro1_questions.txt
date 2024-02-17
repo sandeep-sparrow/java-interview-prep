@@ -1,0 +1,37 @@
+Q1 Can you discuss how the Java Memory Model affects concurrent programming in Java,
+and how volatile keyword is used in this context?
+
+Q2 Describe in detail how Java’s garbage collection works and how it impacts the performance of an application.
+
+Q3 Can you describe a situation where you had to optimize the performance of a Spring Boot application
+and what steps you took?
+
+Q4 How do you handle security in a Spring Boot application?
+Can you talk about a time when you had to implement security measures?
+
+Q5 What is the difference between final, finally and finalize in java?
+
+Q6 Discuss an example where you used a specific data structure to solve a complex problem in your past projects.
+What was the problem and why did you choose that particular data structure?
+
+Q7 Given a binary tree, how would you implement an algorithm to find the height of the tree?
+Can you also discuss its time and space complexity?
+
+Q8 How have you utilized React’s lifecycle methods in your projects?
+Can you give a specific example where you chose one lifecycle method over another, and why you made that choice?
+
+Q9 Can you discuss a specific challenge you’ve faced in optimizing the performance of a React application
+and how you addressed it?
+
+Q10 Could you share a personal passion or drive that consistently helps you go beyond
+what is expected in your professional roles?
+
+Q11 Can you provide an example of a time when you managed to change a hostile atmosphere in a team setting
+by using your communication skills?
+
+Q12 You are given a string consisting of lowercase English letters only.
+Your task is to find the two characters of the string
+that have the maximum distance between occurrences (in terms of indices).
+If there are multiple pairs of characters with the same maximum distance,
+return the pair that occurs first in the string. If there are no pairs of characters with at least two occurrences,
+return an empty array.

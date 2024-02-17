@@ -1,0 +1,58 @@
+Java Core Basics:
+
+Explain the concept of multithreading in Java and discuss some ways to create and manage threads.
+What is the difference between ArrayList and LinkedList in Java? When would you use one over the other?
+What is the Java Collections Framework? Discuss some commonly used interfaces and classes in the Collections Framework.
+Explain the difference between checked and unchecked exceptions in Java. Provide examples of each.
+What is serialization in Java? How do you implement serialization and deserialization?
+Discuss the concept of dependency injection in Java. How is it implemented in frameworks like Spring?
+Explain the principles of object-oriented programming (OOP) and discuss some key concepts such as inheritance, polymorphism, and encapsulation.
+What are lambda expressions in Java 8? How do you use them, and what are the benefits they provide?
+Discuss the Java memory model and garbage collection. How does garbage collection work, and what are some strategies for optimizing memory usage in Java applications?
+What is the difference between HashMap and ConcurrentHashMap in Java? When would you use one over the other?
+What is internal Working of HashMap?
+What is the difference between Iterator and ListIterator, what is ConcurrentModificationException?
+
+React:
+
+What is ReactJS, and how does it differ from other JavaScript frameworks/libraries?
+Explain the concept of Virtual DOM in React. How does it improve performance compared to traditional DOM manipulation?
+What are components in React? Discuss the differences between functional components and class components.
+What are React hooks? Discuss some commonly used hooks and their purposes.
+What is JSX in React? How do you use JSX to create React elements?
+Discuss the concept of state and props in React. How do you manage state and pass props between components?
+What are higher-order components (HOCs) in React? How do you use them to share common functionality between components?
+Explain the React component lifecycle methods. What are some key lifecycle methods, and when are they invoked?
+Discuss the importance of key prop in React lists. Why is it necessary, and how does it improve performance?
+What are controlled and uncontrolled components in React? When would you use each type?
+
+React Advanced:
+
+How have you utilized React’s lifecycle methods in your projects? - yes
+Can you give a specific example where you chose one lifecycle method over another, and why you made that choice? - yes
+Can you discuss a specific challenge you’ve faced in optimizing the performance of a React application
+and how you addressed it?
+Can you differentiate useEffect and UseCallback (ReactJS)? - yes
+Can you differentiate between useLayoutEffect and useEffect? - yes
+Describe form validation libraries in react?
+Can you differentiate between useMemo and usecallback in react?
+
+Java Core Advanced:
+
+Can you discuss how the Java Memory Model affects concurrent programming in Java,
+and how volatile keyword is used in this context?
+Describe in detail how Java’s garbage collection works and how it impacts the performance of an application?
+Can you describe a situation where you had to optimize the performance of a Spring Boot application
+and what steps you took?
+How do you handle security in a Spring Boot application?
+Can you talk about a time when you had to implement security measures?
+What is the difference between final, finally and finalize in java?
+Discuss an example where you used a specific data structure to solve a complex problem in your past projects.
+What was the problem and why did you choose that particular data structure?
+Given a binary tree, how would you implement an algorithm to find the height of the tree?
+Can you also discuss its time and space complexity?
+
+Coding Round Java:
+Define reverse method in LinkedList?
+Define insert and contains method in BST?
+
