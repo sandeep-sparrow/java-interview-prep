@@ -87,4 +87,29 @@ public class BinarySearchTree {
         }
         return successor;
     }
+
+    public int lenght(){
+        return lenght(root);
+    }
+
+    private int lenght(TreeNode root){
+        if(root == null) return 0;
+        else return 1 + lenght(root.left) + lenght(root.right);
+    }
+
+    public boolean rContains(int value){
+        return rContains(root, value);
+    }
+    
+    private boolean rContains(TreeNode currNode, int value){
+        if(currNode == null) return false;
+        if(currNode.value == value) return true;
+        if(value < currNode.value){
+            return rContains(currNode.left, value);
+        }
+        if(value > currNode.value){
+            return rContains(currNode.right, value);
+        }
+        return false;
+    }
 }
