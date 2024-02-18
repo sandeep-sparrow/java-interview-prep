@@ -106,10 +106,23 @@ public class BinarySearchTree {
         if(currNode.value == value) return true;
         if(value < currNode.value){
             return rContains(currNode.left, value);
-        }
-        if(value > currNode.value){
+        }else{
             return rContains(currNode.right, value);
         }
-        return false;
+    }
+
+    public void rInsert(int value){
+        if(root == null) root = new TreeNode(value);
+        rInsert(root, value);
+    }
+
+    private TreeNode rInsert(TreeNode currNode, int value){
+        if(currNode == null) return new TreeNode(value);
+        if(value < currNode.value){
+            currNode.left = rInsert(currNode.left, value);
+        }else if(value > currNode.value){
+            currNode.right = rInsert(currNode.right, value);
+        }
+        return currNode;
     }
 }

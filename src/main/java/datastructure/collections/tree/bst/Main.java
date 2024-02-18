@@ -7,19 +7,19 @@ public class Main {
         BinarySearchTree bst = new BinarySearchTree();
         System.out.println("root = " + bst.root);
 
-        bst.insert(18);
-        bst.insert(13);
-        bst.insert(20);
-        bst.insert(10);
-        bst.insert(16);
-        bst.insert(24);
-        bst.insert(23);
-        bst.insert(14);
-        bst.insert(17);
+        bst.rInsert(8);
+        bst.rInsert(3);
+        bst.rInsert(10);
+        bst.rInsert(1);
+        bst.rInsert(6);
+        bst.rInsert(14);
+        bst.rInsert(13);
+        bst.rInsert(4);
+        bst.rInsert(7);
 
         System.out.println(bst.inorderSuccessor(bst.root.left.left).value);
 
-        System.out.println("Contains using Recusrion: " + bst.rContains(44));
+        System.out.println("Contains using Recusrion: " + bst.rContains(14));
 
 
     }
