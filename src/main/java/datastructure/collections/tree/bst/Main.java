@@ -7,17 +7,18 @@ public class Main {
         BinarySearchTree myBinarySearchTree = new BinarySearchTree();
         System.out.println("root = " + myBinarySearchTree.root);
 
-        myBinarySearchTree.insert(47);
-        myBinarySearchTree.insert(21);
-        myBinarySearchTree.insert(76);
         myBinarySearchTree.insert(18);
-        myBinarySearchTree.insert(52);
-        myBinarySearchTree.insert(82);
+        myBinarySearchTree.insert(13);
+        myBinarySearchTree.insert(20);
+        myBinarySearchTree.insert(10);
+        myBinarySearchTree.insert(16);
+        myBinarySearchTree.insert(24);
+        myBinarySearchTree.insert(23);
+        myBinarySearchTree.insert(14);
+        myBinarySearchTree.insert(17);
 
-        boolean result = myBinarySearchTree.insert(27);
-        System.out.println("Insert Success? " + result);
-        result = myBinarySearchTree.contains(27);
-        System.out.println("Cotains? " + result);
-        System.out.println(myBinarySearchTree.root.left.right.value);
+        System.out.println(myBinarySearchTree.inorderSuccessor(myBinarySearchTree.root.left.left).value);
+
+
     }
 }

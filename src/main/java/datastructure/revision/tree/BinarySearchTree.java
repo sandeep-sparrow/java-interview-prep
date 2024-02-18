@@ -1,11 +1,19 @@
-package datastructure.collections.tree.bst;
+package datastructure.revision.tree;
 
 public class BinarySearchTree {
 
     TreeNode root;
 
+    public static class TreeNode{
+        int value;
+        TreeNode left, right;
+
+        public TreeNode(int value){
+            this.value = value;
+        }
+    }
+
     public boolean insert(int value){
-        // create new node
         TreeNode newNode = new TreeNode(value);
         if(root == null){
             root = newNode;
@@ -14,16 +22,15 @@ public class BinarySearchTree {
         TreeNode temp = root;
         while(true){
             if(newNode.value == temp.value) return false;
-            if(newNode.value < temp.value ){
+            if(newNode.value < temp.value){
                 if(temp.left == null){
                     temp.left = newNode;
-                    return true;
                 }
                 temp = temp.left;
-            }else{
+            }
+            if(newNode.value > temp.value){
                 if(temp.right == null){
                     temp.right = newNode;
-                    return true;
                 }
                 temp = temp.right;
             }
@@ -36,18 +43,19 @@ public class BinarySearchTree {
         while(temp != null){
             if(value < temp.value){
                 temp = temp.left;
-            }else if(value > temp.value){
+            }
+            if(value > temp.value){
                 temp = temp.right;
             }else{
                 return true;
             }
         }
-        return false;
+        return false;        
     }
 
-    public int maxInBST(){
+    public int findMaxValue(){
         if(root == null){
-            System.out.println("BST is empty");
+            System.out.println("BST is empty!");
             return Integer.MIN_VALUE;
         }
         TreeNode currNode = root;
@@ -57,34 +65,43 @@ public class BinarySearchTree {
         return currNode.value;
     }
 
-
-    // successor of a given nonde is the node with the smallest key greater than node.val
-    public TreeNode inorderSuccessor(TreeNode node) {
-        if (node == null)
+    public TreeNode findInOrderSuccessor(TreeNode node){
+        if(node == null){
             return null;
+        }
 
-        // If the right subtree of the node is not null,
-        // then the successor is the leftmost node in the right subtree
-        if (node.right != null) {
+        //If the right substree of the node is null,
+        // then the successor is the lestmost node in right subtree
+        if(node.right != null){
             TreeNode current = node.right;
-            while (current.left != null) {
+            while(current.left != null){
                 current = current.left;
             }
             return current;
         }
 
-        // If the right subtree of the node is null,
-        // then the successor is one of the ancestors of the node
+        // if the right subree of the node is null
+        // than the successor is one of the ancestors of the node
         TreeNode successor = null;
         TreeNode ancestor = root;
         while (ancestor != node) {
-            if (node.value < ancestor.value) {
+            if(node.value < ancestor.value){
                 successor = ancestor;
                 ancestor = ancestor.left;
-            } else {
+            }else{
                 ancestor = ancestor.right;
             }
         }
         return successor;
     }
+
+    // to find the length of a BST, you can implement a recursive function that traveres
+    // the tree and counts the node
+    public int length(TreeNode root){
+        if(root == null)
+            return 0;
+        else
+            return 1 + length(root.left) + length(root.right);
+    }
+    
 }
