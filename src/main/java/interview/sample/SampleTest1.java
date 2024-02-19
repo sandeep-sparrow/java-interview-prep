@@ -1,4 +1,4 @@
-package interview.sampleTest;
+package interview.sample;
 
 import java.util.ArrayList;
 import java.util.HashMap;
