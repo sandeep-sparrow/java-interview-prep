@@ -43,6 +43,22 @@ public class BinaryTreeLLMain {
         System.out.println(" ");
         myBinaryTreeLL.search("N6");
 
+        myBinaryTreeLL.insert("N10");
+        System.out.println(" ");
+        myBinaryTreeLL.levelOrder();
+        System.out.println(" ");
+        myBinaryTreeLL.preOrder(N1);
+        System.out.println(" ");
+        myBinaryTreeLL.inOrder(N1);
+
+        System.out.println(" ");
+        System.out.println("Deepest Node: " + myBinaryTreeLL.getDeepestNode().value);
+        myBinaryTreeLL.deleteNode("N3");
+        System.out.println(" ");
+        myBinaryTreeLL.levelOrder();
+        System.out.println(" ");
+        myBinaryTreeLL.deleteBT();
+        myBinaryTreeLL.levelOrder();
     }
     
 }
