@@ -1,7 +1,5 @@
 package algorithm.graph;
 
-import java.io.*;
-import java.nio.file.NoSuchFileException;
 import java.util.*;
 
 @SuppressWarnings("hiding")
@@ -38,6 +36,7 @@ public class LinkedList<Integer> implements Iterable<Integer> {
         throw new UnsupportedOperationException("Unimplemented method 'iterator'");
     }
     
+    @SuppressWarnings("unused")
     private class ListIterator<Integer> implements Iterator<Integer>{
 
         private ListNode<Integer> current;

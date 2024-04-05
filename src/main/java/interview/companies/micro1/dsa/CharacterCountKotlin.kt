@@ -5,7 +5,7 @@ package interview.companies.micro1.dsa
     Input String: "aaabddcccbaadd"
     Expected Result: "a5b2c3d4"
  */
-fun main(args: Array<String>) {
+fun main() {
     val input = "aaabddcccbaadd";
     println("Expected Result: " + compressString(input));
 }

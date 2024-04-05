@@ -71,7 +71,7 @@ public class BinarySearchTree {
             queue.add(currentNode);
         }
 
-        while (queue.size() > 0) {
+        while (!queue.isEmpty()) {
             currentNode = queue.remove();
             if (currentNode != null) { 
                 results.add(currentNode.value);
@@ -81,6 +81,89 @@ public class BinarySearchTree {
         }
         return results;
     }
+
+    // Pre-Order DFS - uses recursion
+    public ArrayList<Integer> DFSPreOrder(){
+        ArrayList<Integer> results = new ArrayList<>();
+
+        class Traverse{
+            Traverse(TreeNode currentNode){
+                results.add(currentNode.value);
+                if(currentNode.left != null){
+                    new Traverse(currentNode.left);
+                }
+                if(currentNode.right != null){
+                    new Traverse(currentNode.right);
+                }
+            }
+        }
+        new Traverse(root);
+        return results;
+    }
+
+    // Post-Order DFS - users recursion
+    public ArrayList<Integer> DFSPostOrder(){
+        ArrayList<Integer> results = new ArrayList<>();
+
+        class Traverse{
+            Traverse(TreeNode currentNode){
+                if(currentNode.left != null){
+                    new Traverse(currentNode.left);
+                }
+                if(currentNode.right != null){
+                    new Traverse(currentNode.right);
+                }
+                results.add(currentNode.value);
+            }
+        }
+        new Traverse(root);
+        return results;
+    }
+
+    // In-Order DFS - users recursion
+    public ArrayList<Integer> DFSInOrder(){
+        ArrayList<Integer> results = new ArrayList<>();
+
+        class Traverse{
+            Traverse(TreeNode currentNode){
+                if(currentNode.left != null){
+                    new Traverse(currentNode.left);
+                }
+                results.add(currentNode.value);
+                if(currentNode.right != null){
+                    new Traverse(currentNode.right);
+                }
+            }
+        }
+        new Traverse(root);
+        return results;
+    }
+
+    public Boolean isValidBST(){
+        // Perform an in-order traversal of the tree. This should
+        // result in a list of node values in ascending order if
+        // the tree is a valid binary search tree (BST).
+        ArrayList<Integer> nodeValues = DFSInOrder();
+        // Start from the second element (index 1) and compare each
+        // element with its predecessor to ensure the list is in
+        // strictly ascending order. The in-order traversal of a BST
+        // should produce a sorted list of values where each value
+        // is greater than the previous one.
+        for (int i = 1; i < nodeValues.size(); i++) {
+            // If the current value is less than or equal to the previous
+            // value, it means the list is not in ascending order. Thus,
+            // the tree is not a valid BST. Return false in this case.
+            if (nodeValues.get(i) <= nodeValues.get(i - 1)) {
+                return false; // Not in ascending order
+            }
+        }
+
+        // If the loop completes without finding any out-of-order elements,
+        // it means the in-order traversal resulted in a sorted list, and
+        // therefore, the tree is a valid BST. Return true in this case.
+        return true;
+    }
+
 
     // In-Order Suceccsor Defination : Successor of a given nonde is the node with the smallest key greater than node.val
     public TreeNode inorderSuccessor(TreeNode node) {

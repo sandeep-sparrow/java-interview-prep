@@ -1,11 +1,13 @@
 package design.pattern.creational.factory.abstractfactory;
 
-import java.util.*;
-
+import javafx.util.Pair;
 import org.reflections.Reflections;
 
-import javafx.util.Pair;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 public class DemoAbstractFactory {
     public static void main(String[] args) throws Exception {
@@ -13,7 +15,7 @@ public class DemoAbstractFactory {
         HotDrink drink = machine.makeADrink();
         drink.consume();
     }
-    
+
 }
 
 interface HotDrink{
@@ -26,7 +28,7 @@ class Tea implements HotDrink{
     public void consume() {
         System.out.println("This tea is delicious :)");
     }
-    
+
 }
 
 class Coffee implements HotDrink{
@@ -35,7 +37,7 @@ class Coffee implements HotDrink{
     public void consume() {
         System.out.println("This coffee is delicious :)");
     }
-    
+
 }
 
 interface HotDrinkFactory{
@@ -52,7 +54,7 @@ class TeaFactory implements HotDrinkFactory{
         );
         return new Tea();
     }
-    
+
 }
 
 class CoffeeFactory implements HotDrinkFactory{
@@ -70,7 +72,7 @@ class HotDrinkMachine{
     private List<Pair<String, HotDrinkFactory>> namedFactories = new ArrayList<>();
 
     public HotDrinkMachine() throws Exception{
-        Set<Class<? extends HotDrinkFactory>> types = 
+        Set<Class<? extends HotDrinkFactory>> types =
             new Reflections("design.pattern.creational.factory.abstractfactory")
                 .getSubTypesOf(HotDrinkFactory.class);
         for(Class<? extends HotDrinkFactory> type : types){
@@ -95,7 +97,7 @@ class HotDrinkMachine{
         while(true){
             String s;
             int i, amount;
-            if((s = reader.readLine()) != null 
+            if((s = reader.readLine()) != null
                 && (i = Integer.parseInt(s)) >= 0
                 && (i < namedFactories.size())){
                     System.out.println("Specify Amount: ");

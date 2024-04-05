@@ -3,13 +3,16 @@ package algorithm.graph;
 import java.util.Random;
 
 public class Graph {
+    @SuppressWarnings("unused")
     private static final String NEWLINE = System.getProperty("line.separator");
+    @SuppressWarnings("unused")
     private final int V;
     private int E;
 
     private LinkedList<Integer>[] adjList;
 
     // initializes an empty graph with V vertices and 0 edges
+    @SuppressWarnings("unchecked")
     public Graph(int V){
         if(V<0) throw new IllegalArgumentException("Number of vertices must be non -ve");
         this.V = V;
@@ -35,7 +38,6 @@ public class Graph {
     }
 
     private void addEdge(int u, int v2) {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'addEdge'");
     }
     

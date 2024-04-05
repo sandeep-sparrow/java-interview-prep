@@ -4,11 +4,13 @@ import java.lang.Math;
 
 public class DemoFactory{
     public static void main(String[] args) {
+        @SuppressWarnings("unused")
         Point point = Point.Factory.newCartesianPodouble(5, 5); 
     }
 }
 
 class Point{
+    @SuppressWarnings("unused")
     private double a, b;
 
     private Point(double a, double b){
