@@ -1,6 +1,7 @@
 package faang.dsa.graph.matrix;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Graph {
 
@@ -34,7 +35,42 @@ public class Graph {
         return s.toString();
     }
 
+    // GET neighbours - HELPER method
+    public ArrayList<GraphNode> getNeighours(GraphNode node){
+        ArrayList<GraphNode> neighbours = new ArrayList<>();
+        int nodeIndex = node.index;
 
+        for(int i = 0; i < adjMatrix.length; i++){
+            if(adjMatrix[nodeIndex][i] == 1){
+                neighbours.add(nodeList.get(i));
+            }
+        }
+        return neighbours;
+    }
 
+    // BSF - Internal - HELPER METHOD
+    void bfsVisit(GraphNode node){
+        LinkedList<GraphNode> queue = new LinkedList<>();
+        queue.add(node);
+        while(!queue.isEmpty()){
+            GraphNode currentNode = queue.remove();
+            currentNode.isVisited = true;
+            System.out.print(currentNode.name + " ");
+            ArrayList<GraphNode> neighbours = getNeighours(currentNode);
+            for(GraphNode neighbour : neighbours){
+                if(!neighbour.isVisited){
+                    queue.add(neighbour);
+                    neighbour.isVisited = true;
+                }
+            }
+        }
+    }
 
+    public void BFS(){
+        for(GraphNode node : nodeList){
+            if(!node.isVisited){
+                bfsVisit(node);
+            }
+        }
+    }
 }
