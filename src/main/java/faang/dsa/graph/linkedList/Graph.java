@@ -3,6 +3,8 @@ package faang.dsa.graph.linkedList;
 import faang.dsa.graph.linkedList.GraphNode;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class Graph {
 
@@ -36,7 +38,28 @@ public class Graph {
         return s.toString();
     }
 
+    // Internal HELPER Method
+    public void bfsVisit(GraphNode node){
+        Queue<GraphNode> queue = new LinkedList<>();
+        queue.add(node);
+        while(!queue.isEmpty()){
+            GraphNode currentNode = queue.remove();
+            currentNode.isVisited = true;
+            System.out.print(currentNode.name + " ");
+            for(GraphNode neighbour : currentNode.neighbours){
+                if(!neighbour.isVisited){
+                    queue.add(neighbour);
+                    neighbour.isVisited = true;
+                }
+            }
+        }
+    }
 
-
-
+    public void BFS(){
+        for(GraphNode node : nodeList){
+            if(!node.isVisited){
+                bfsVisit(node);
+            }
+        }
+    }
 }
