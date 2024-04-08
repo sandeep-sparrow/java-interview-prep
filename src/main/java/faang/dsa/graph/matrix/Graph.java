@@ -14,7 +14,7 @@ public class Graph {
         adjMatrix = new int[nodeList.size()][nodeList.size()];
     }
 
-    public void addUndirectedEdge(int i, int j){
+    public void addUndirectedEdges(int i, int j){
         adjMatrix[i][j] = 1;
         adjMatrix[j][i] = 1;
     }

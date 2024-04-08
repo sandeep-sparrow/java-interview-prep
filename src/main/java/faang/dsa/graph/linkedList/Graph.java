@@ -15,7 +15,7 @@ public class Graph {
         this.nodeList = nodeList;
     }
 
-    public void addUndirectedEdge(int i, int j){
+    public void addUndirectedEdges(int i, int j){
         GraphNode first = nodeList.get(i);
         GraphNode second = nodeList.get(j);
 
