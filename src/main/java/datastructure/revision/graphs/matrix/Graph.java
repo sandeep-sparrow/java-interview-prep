@@ -1,12 +1,12 @@
-package faang.dsa.graph.matrix;
+package datastructure.revision.graphs.matrix;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.Stack;
+import java.util.Queue;
 
 public class Graph {
 
-    ArrayList<GraphNode> nodeList = new ArrayList<>();
+    ArrayList<GraphNode> nodeList;
     int[][] adjMatrix;
 
     public Graph(ArrayList<GraphNode> nodeList){
@@ -14,14 +14,14 @@ public class Graph {
         adjMatrix = new int[nodeList.size()][nodeList.size()];
     }
 
-    public void addUndirectedEdge(int i, int j){
+    public void addUndirectedEdges(int i, int j){
         adjMatrix[i][j] = 1;
         adjMatrix[j][i] = 1;
     }
 
     public String toString(){
         StringBuilder s = new StringBuilder();
-        s.append("   ");
+        s.append("X: ");
         for (GraphNode graphNode : nodeList) {
             s.append(graphNode.name).append(" ");
         }
@@ -36,12 +36,10 @@ public class Graph {
         return s.toString();
     }
 
-    // GET neighbours - HELPER method
-    public ArrayList<GraphNode> getNeighours(GraphNode node){
+    public ArrayList<GraphNode> getNeighbours(GraphNode node){
         ArrayList<GraphNode> neighbours = new ArrayList<>();
         int nodeIndex = node.index;
-
-        for(int i = 0; i < adjMatrix.length; i++){
+        for(int i = 0; i < nodeList.size(); i++){
             if(adjMatrix[nodeIndex][i] == 1){
                 neighbours.add(nodeList.get(i));
             }
@@ -49,53 +47,28 @@ public class Graph {
         return neighbours;
     }
 
-    // BSF - Internal - HELPER METHOD
-    void bfsVisit(GraphNode node){
-        LinkedList<GraphNode> queue = new LinkedList<>();
+    public void bfsVisit(GraphNode node){
+        Queue<GraphNode> queue = new LinkedList<>();
         queue.add(node);
-        while(!queue.isEmpty()){
+        while(!queue.isEmpty()) {
             GraphNode currentNode = queue.remove();
             currentNode.isVisited = true;
             System.out.print(currentNode.name + " ");
-            ArrayList<GraphNode> neighbours = getNeighours(currentNode);
-            for(GraphNode neighbour : neighbours){
-                if(!neighbour.isVisited){
-                    queue.add(neighbour);
+            ArrayList<GraphNode> neighbours = getNeighbours(currentNode);
+            for (GraphNode neighbour : neighbours) {
+                if (!neighbour.isVisited) {
                     neighbour.isVisited = true;
+                    queue.add(neighbour);
                 }
             }
         }
     }
 
     public void BFS(){
+        System.out.println("BFS traversal:");
         for(GraphNode node : nodeList){
             if(!node.isVisited){
                 bfsVisit(node);
-            }
-        }
-    }
-
-    public void dfsVisit(GraphNode node){
-        Stack<GraphNode> stack = new Stack<>();
-        stack.push(node);
-        while(!stack.isEmpty()){
-            GraphNode currentNode = stack.pop();
-            currentNode.isVisited = true;
-            System.out.print(currentNode.name + " ");
-            ArrayList<GraphNode> neighbours = getNeighours(node);
-            for(GraphNode neighbour : neighbours){
-                if(!neighbour.isVisited){
-                    neighbour.isVisited = true;
-                    stack.push(neighbour);
-                }
-            }
-        }
-    }
-
-    public void DFS(){
-        for(GraphNode node : nodeList){
-            if(!node.isVisited){
-                dfsVisit(node);
             }
         }
     }
