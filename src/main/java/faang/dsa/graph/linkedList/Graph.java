@@ -1,7 +1,5 @@
 package faang.dsa.graph.linkedList;
 
-import faang.dsa.graph.linkedList.GraphNode;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -9,7 +7,7 @@ import java.util.Stack;
 
 public class Graph {
 
-    ArrayList<GraphNode> nodeList = new ArrayList<>();
+    ArrayList<GraphNode> nodeList;
 
     public Graph(ArrayList<GraphNode> nodeList){
         this.nodeList = nodeList;
@@ -85,6 +83,36 @@ public class Graph {
             if(!node.isVisited){
                 dfsVisit(node);
             }
+        }
+    }
+
+    // Topological Sorting
+    public void addDirectedEdges(int i, int j){
+        GraphNode first = nodeList.get(i);
+        GraphNode second = nodeList.get(j);
+
+        first.neighbours.add(second);
+    }
+
+    public void topologicalVisit(GraphNode node, Stack<GraphNode> stack){
+        for(GraphNode neighbour : node.neighbours){
+            if(!neighbour.isVisited){
+                topologicalVisit(neighbour, stack);
+            }
+        }
+        node.isVisited = true;
+        stack.push(node);
+    }
+
+    public void TopologicalSort(){
+        Stack<GraphNode> stack = new Stack<>();
+        for(GraphNode node : nodeList){
+            if(!node.isVisited){
+                topologicalVisit(node, stack);
+            }
+        }
+        while(!stack.isEmpty()){
+            System.out.print(stack.pop().name + " ");
         }
     }
 }
