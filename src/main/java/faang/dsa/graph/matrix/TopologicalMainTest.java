@@ -30,7 +30,5 @@ public class TopologicalMainTest {
 
         System.out.println(g.toString());
         g.TopologicalSort();
-
-
     }
 }
