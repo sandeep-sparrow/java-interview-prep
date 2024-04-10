@@ -2,6 +2,7 @@ package faang.dsa.graph.matrix;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 public class Graph {
@@ -128,4 +129,33 @@ public class Graph {
             System.out.print(stack.pop().name + " ");
         }
     }
+
+    // Recursive printPath: Helper Method
+    public static void pathPrint(GraphNode node){
+        if(node.parent != null){
+            pathPrint(node.parent);
+        }
+        System.out.print(node.name + " ");
+    }
+
+    public void BFSforSSSPP(GraphNode node){
+        Queue<GraphNode> queue = new LinkedList<>();
+        queue.add(node);
+        while(!queue.isEmpty()){
+            GraphNode currentNode = queue.remove();
+            currentNode.isVisited = true;
+            System.out.print("Printing path for node: " + currentNode.name + ": ");
+            pathPrint(currentNode);
+            System.out.println();
+            // get All Neighbours
+            for(GraphNode neighbour : getNeighours(currentNode)){
+                if(!neighbour.isVisited){
+                    neighbour.isVisited = true;
+                    queue.add(neighbour);
+                    neighbour.parent = currentNode;
+                }
+            }
+        }
+    }
+
 }
