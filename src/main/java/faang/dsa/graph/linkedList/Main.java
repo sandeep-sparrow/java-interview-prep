@@ -15,12 +15,12 @@ public class Main {
 
         Graph g1 = new Graph(nodeList1);
 
-        g1.addUndirectedEdge(0,1);
-        g1.addUndirectedEdge(0,2);
-        g1.addUndirectedEdge(0, 3);
-        g1.addUndirectedEdge(1, 4);
-        g1.addUndirectedEdge(2, 3);
-        g1.addUndirectedEdge(3, 4);
+        g1.addUndirectedEdges(0,1);
+        g1.addUndirectedEdges(0,2);
+        g1.addUndirectedEdges(0, 3);
+        g1.addUndirectedEdges(1, 4);
+        g1.addUndirectedEdges(2, 3);
+        g1.addUndirectedEdges(3, 4);
 
         System.out.println(g1.toString());
 
@@ -37,12 +37,12 @@ public class Main {
 
         Graph g2 = new Graph(nodeList2);
 
-        g2.addUndirectedEdge(0,1);
-        g2.addUndirectedEdge(0,2);
-        g2.addUndirectedEdge(0, 3);
-        g2.addUndirectedEdge(1, 4);
-        g2.addUndirectedEdge(2, 3);
-        g2.addUndirectedEdge(3, 4);
+        g2.addUndirectedEdges(0,1);
+        g2.addUndirectedEdges(0,2);
+        g2.addUndirectedEdges(0, 3);
+        g2.addUndirectedEdges(1, 4);
+        g2.addUndirectedEdges(2, 3);
+        g2.addUndirectedEdges(3, 4);
         
         System.out.println("\nDepth First Search");
         g2.DFS();

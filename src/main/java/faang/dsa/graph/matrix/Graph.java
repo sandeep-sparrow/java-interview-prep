@@ -14,7 +14,7 @@ public class Graph {
         adjMatrix = new int[nodeList.size()][nodeList.size()];
     }
 
-    public void addUndirectedEdge(int i, int j){
+    public void addUndirectedEdges(int i, int j){
         adjMatrix[i][j] = 1;
         adjMatrix[j][i] = 1;
     }
@@ -92,11 +92,40 @@ public class Graph {
         }
     }
 
+    // Dept First Search
     public void DFS(){
         for(GraphNode node : nodeList){
             if(!node.isVisited){
                 dfsVisit(node);
             }
+        }
+    }
+
+    // Topological Sort
+    public void addDirectedEdges(int i, int j){
+        adjMatrix[i][j] = 1;
+    }
+
+    public void topologicalVisit(GraphNode node, Stack<GraphNode> stack){
+        ArrayList<GraphNode> neighbours = getNeighours(node);
+        for(GraphNode neighbour : neighbours){
+            if(!neighbour.isVisited){
+                topologicalVisit(neighbour, stack);
+            }
+        }
+        node.isVisited = true;
+        stack.push(node);
+    }
+
+    public void TopologicalSort(){
+        Stack<GraphNode> stack = new Stack<>();
+        for(GraphNode node : nodeList){
+            if(!node.isVisited){
+                topologicalVisit(node, stack);
+            }
+        }
+        while(!stack.isEmpty()){
+            System.out.print(stack.pop().name + " ");
         }
     }
 }
