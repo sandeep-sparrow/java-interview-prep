@@ -115,4 +115,32 @@ public class Graph {
             System.out.print(stack.pop().name + " ");
         }
     }
+
+    // Recursive Call - HELPER method
+    public static void pathPrint(GraphNode node){
+        if(node.parent != null){
+            pathPrint(node.parent);
+        }
+        System.out.print(node.name + " ");
+    }
+
+    // Single Source Shortest Path Problem
+    public void BFSforSSSPP(GraphNode startingNode){
+        Queue<GraphNode> queue = new LinkedList<>();
+        queue.add(startingNode);
+        while(!queue.isEmpty()){
+            GraphNode currentNode = queue.remove();
+            currentNode.isVisited = true;
+            System.out.print("Printing path for node: " + currentNode.name + ": ");
+            pathPrint(currentNode);
+            System.out.println();
+            for(GraphNode neighbour : currentNode.neighbours){
+                if(!neighbour.isVisited){
+                    queue.add(neighbour);
+                    neighbour.isVisited = true;
+                    neighbour.parent = currentNode;
+                }
+            }
+        }
+    }
 }
