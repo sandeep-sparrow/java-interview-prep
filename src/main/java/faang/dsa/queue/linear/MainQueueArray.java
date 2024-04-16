@@ -1,4 +1,4 @@
-package faang.dsa.queue;
+package faang.dsa.queue.linear;
 
 public class MainQueueArray {
 
