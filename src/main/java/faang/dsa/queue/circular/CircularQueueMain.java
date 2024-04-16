@@ -13,5 +13,10 @@ public class CircularQueueMain {
 
         System.out.println("Is Empty: " + myCircularQueue.isEmpty());
         System.out.println("Is Full: " + myCircularQueue.isFull());
+
+        System.out.println("Result of dequeue:" + myCircularQueue.dequeue());
+        System.out.println("Result of dequeue:" + myCircularQueue.dequeue());
+        System.out.println("Result of dequeue:" + myCircularQueue.dequeue());
+        System.out.println("Result of dequeue:" + myCircularQueue.dequeue());
     }
 }

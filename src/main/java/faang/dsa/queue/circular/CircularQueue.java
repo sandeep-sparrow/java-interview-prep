@@ -34,7 +34,7 @@ public class CircularQueue {
         }else return beginningOfQueue == 0 && topofQueue + 1 == size;
     }
 
-    // enQueue(value)
+    // enqueue(value)
     // TIME COMPLEXITY = O(1)
     // SPACE COMPLEXITY = O(1);
     public void enqueue(int value){
@@ -55,5 +55,46 @@ public class CircularQueue {
             arr[topofQueue] = value;
             System.out.println("Success insertion of value: " + value + " in the queue");
         }
+    }
+
+    // dequeue()
+    // TIME COMPLEXITY = O(1)
+    // SPACE COMPLEXITY = O(1);
+    public int dequeue(){
+        if(isEmpty()){
+            System.out.println("The queue is empty!");
+            return -1;
+        }else{
+            int result = arr[beginningOfQueue];
+            arr[beginningOfQueue] = 0;
+            if(beginningOfQueue == topofQueue){
+                beginningOfQueue = topofQueue = -1;
+            }else if(beginningOfQueue+1 == size){
+                beginningOfQueue = 0;
+            }else {
+                beginningOfQueue++;
+            }
+            return result;
+        }
+    }
+
+    // peek()
+    // TIME COMPLEXITY = O(1)
+    // SPACE COMPLEXITY = O(1);
+    public int peek(){
+        if(isEmpty()){
+            System.out.println("The queue is empty!");
+            return -1;
+        }else{
+            return arr[beginningOfQueue];
+        }
+    }
+
+    // deletequeue()
+    // TIME COMPLEXITY = O(1)
+    // SPACE COMPLEXITY = O(1);
+    public void deleteQueue(){
+        arr = null;
+        System.out.println("The Queue is successfullt deleted");
     }
 }
