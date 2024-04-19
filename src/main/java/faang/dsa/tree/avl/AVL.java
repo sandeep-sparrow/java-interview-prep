@@ -146,6 +146,7 @@ public class AVL {
         // check if this newNode cause disbalanced node or not?
         node.height = 1 + Math.max(getHeight(node.left), getHeight(node.right));
         int balance = getBalancedNode(node);
+
         if(balance > 1 && value < node.left.value){
             // L-L condition - Doing - RIGHT rotation
             return rotateRight(node);
@@ -173,5 +174,76 @@ public class AVL {
 
     public void insert(int value){
         root = insertNode(root, value);
+    }
+
+    // DELETION
+    // Rotation is not required - 3 cases - leaf Node, 1 child, 2 children
+    // Step1: Find the Node aka value [value < node.value = goLeft, node > node.value = gotRight, == found ]
+    // Node is a leaf node, Node has 1 child, Node has 2 children
+    // 1 child deletion -> Parent assign to child...
+    // 2 children deletion -> find successor of given node (it is the minimum node at the right subtree) and make it root node...
+
+    //DELETION
+    // Rotation is required - upon above 3 condition we have 4 more condition for rotation
+    // LL condition, LR condition, RR condition, RL condition
+
+    public static BinaryNode minimumNode(BinaryNode root){
+        if(root.left == null){
+            return root;
+        }
+        return minimumNode(root.left);
+    }
+
+    // Delete Node
+    private BinaryNode deleteNode(BinaryNode node, int value){
+        // rotation is not required
+        // 1st find out the node
+        // then check if rotation is required or not
+        if(node == null){
+            System.out.println("Value not found in AVL");
+            return node;
+        }
+        if(value < node.value){
+            node.left = deleteNode(node.left, value);
+        }else if(value > node.value){
+            node.right= deleteNode(node.right, value);
+        }else{
+            // 3 cases, 1 CHILD, 2 CHILDREN, LEAF NODE
+            if(node.left != null && node.right != null){
+                // 2 CHILDREN
+                // find successor
+                BinaryNode mininumForRight = minimumNode(node.right);
+                node.value = mininumForRight.value;
+                node.right = deleteNode(node.right, mininumForRight.value);
+            }else if(node.left != null){
+                node = node.left;
+            }else if(node.right != null){
+                node = node.right;
+            }else{
+                node = null;
+            }
+        }
+
+        // check if any disbalanced node
+        int balance = getBalancedNode(node);
+        if(balance > 1 && getBalancedNode(node.left) >= 0){
+            return rotateRight(node);
+        }
+        if(balance > 1 && getBalancedNode(node.left) < 0){
+            node.left = rotateLeft(node.left);
+            return rotateRight(node);
+        }
+        if(balance < -1 && getBalancedNode(node.right) <= 0){
+            return rotateLeft(node);
+        }
+        if(balance < -1 && getBalancedNode(node.right) > 0){
+            node.right = rotateRight(node.right);
+            return rotateLeft(node);
+        }
+        return node;
+    }
+
+    public void delete(int value){
+        root = deleteNode(root, value);
     }
 }
