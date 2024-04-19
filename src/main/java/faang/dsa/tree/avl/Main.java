@@ -12,5 +12,20 @@ public class Main {
         newAvl.delete(5);
         System.out.println();
         newAvl.levelOrder();
+
+        AVL myAvl = new AVL();
+        myAvl.insert(70);
+        myAvl.insert(50);
+        myAvl.insert(90);
+        myAvl.insert(30);
+        myAvl.insert(60);
+        myAvl.insert(80);
+        myAvl.insert(100);
+        myAvl.insert(20);
+        System.out.println("Debug Here!");
+        myAvl.levelOrder();
+        myAvl.delete(70);
+        System.out.println();
+        myAvl.levelOrder();
     }
 }
