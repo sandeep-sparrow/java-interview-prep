@@ -1,6 +1,11 @@
-package design.pattern.creational.factory.report.generation;
+package design.pattern.creational.factory.report.generation.french;
 
-public class FrenchResponseGenerator extends ResponseGenerator{
+import design.pattern.creational.factory.report.dao.ProcessResult;
+import design.pattern.creational.factory.report.generation.Response;
+import design.pattern.creational.factory.report.generation.ResponseGenerator;
+import design.pattern.creational.factory.report.generation.ResponseType;
+
+public class FrenchResponseGenerator extends ResponseGenerator {
     @Override
     protected Response construct(ProcessResult result, ResponseType type) {
         Response response = null;

@@ -1,6 +1,9 @@
-package design.pattern.creational.factory.report.generation;
+package design.pattern.creational.factory.report.generation.french;
 
-public class FrenchInProgress extends Response{
+import design.pattern.creational.factory.report.dao.ProcessResult;
+import design.pattern.creational.factory.report.generation.Response;
+
+public class FrenchInProgress extends Response {
 
     protected FrenchInProgress(ProcessResult result) {
         super(result);
