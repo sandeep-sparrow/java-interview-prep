@@ -254,4 +254,25 @@ public class LinkedList {
         }
         return slow;
     }
+
+    
+    void bubbleSort() {
+        if (this.length < 2)
+            return;
+ 
+        LinkedNode sortedUntil = null;
+        while (sortedUntil != this.head.next) {
+            LinkedNode current = this.head;
+            while (current.next != sortedUntil) {
+                LinkedNode nextNode = current.next;
+                if (current.value > nextNode.value) {
+                    int temp = current.value;
+                    current.value = nextNode.value;
+                    nextNode.value = temp;
+                }
+                current = current.next;
+            }
+            sortedUntil = current;
+        }
+    }
 }

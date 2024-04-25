@@ -45,5 +45,12 @@ public class Main {
         LinkedNode kthNode = myLinkedList.findKthFromEnd(2); // 4, 3, 2, 1
         System.out.println("--- kth node ---");
         System.out.println(kthNode.value);
+
+        System.out.println("My Linked List 2");
+        LinkedList myLinkedList2 = new LinkedList(3);
+        myLinkedList2.append(1);
+        myLinkedList2.append(2);
+        myLinkedList2.bubbleSort();
+        myLinkedList2.printAll();
     }
 }
