@@ -26,7 +26,7 @@ public class RevisionSort {
         }
     }
 
-    private static void selectionSort(int[] myArray1) {
+    private static void selectionSort(int[] myArray1) { // Straight Forward most simplest
         for(int i = 0; i < myArray1.length; i++){
             int minIndex = i;
             for(int j = i+1; j < myArray1.length; j++){
@@ -42,7 +42,7 @@ public class RevisionSort {
         }
     }
 
-    private static void bubbleSort(int[] myArray1) {
+    private static void bubbleSort(int[] myArray1) { // Most efficient in terms of space complexity
         for(int i = myArray1.length - 1; i > 0; i--){
             for(int j = 0; j < i; j++){
                 if(myArray1[j] > myArray1[j+1]){
