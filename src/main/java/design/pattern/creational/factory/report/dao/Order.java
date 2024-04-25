@@ -1,4 +1,4 @@
-package design.pattern.creational.factory.report.generation;
+package design.pattern.creational.factory.report.dao;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

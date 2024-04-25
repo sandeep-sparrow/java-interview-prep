@@ -1,13 +1,16 @@
-package design.pattern.creational.factory.report.generation;
+package design.pattern.creational.factory.report.generation.french;
 
-public class FrenchSuccess extends Response{
+import design.pattern.creational.factory.report.dao.ProcessResult;
+import design.pattern.creational.factory.report.generation.Response;
+
+public class FrenchSuccess extends Response {
 
     protected FrenchSuccess(ProcessResult result) {
         super(result);
     }
 
     public void process(){
-        System.out.println("print success information");
+        System.out.println("print success information - french");
     }
 
     public void convert(){
