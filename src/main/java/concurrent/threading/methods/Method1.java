@@ -1,4 +1,4 @@
-package threading.methods;
+package concurrent.threading.methods;
 
 public class Method1 extends Thread{
 

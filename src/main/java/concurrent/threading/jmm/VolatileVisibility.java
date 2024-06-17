@@ -1,4 +1,4 @@
-package threading.jmm;
+package concurrent.threading.jmm;
 
 public class VolatileVisibility{
 

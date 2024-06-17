@@ -1,4 +1,4 @@
-package async;
+package concurrent.async;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -54,7 +54,7 @@ public class Main {
             // data -> SaveToDb(data)
             .thenRun(() -> System.out.println("log some info")) // CF<Void>
             .thenRun(() -> System.out.println("do some post operations")) // CF<Void>
-            // fair enough - never ending pipeline when working CF<K>, CompletableFuture<SendResult<K, V>> - when working KafkaTemplate to make an async call by default...
+            // fair enough - never ending pipeline when working CF<K>, CompletableFuture<SendResult<K, V>> - when working KafkaTemplate to make an concurrent.async call by default...
             .exceptionally((err) -> {
                 System.out.println(err.getMessage());
                 throw new RuntimeException("We can't do much at all");

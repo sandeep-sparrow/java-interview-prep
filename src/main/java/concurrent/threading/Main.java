@@ -1,7 +1,7 @@
-package threading;
+package concurrent.threading;
 
-import threading.methods.Method1;
-import threading.methods.Method2;
+import concurrent.threading.methods.Method1;
+import concurrent.threading.methods.Method2;
 
 public class Main {
 

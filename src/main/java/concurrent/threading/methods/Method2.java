@@ -1,4 +1,4 @@
-package threading.methods;
+package concurrent.threading.methods;
 
 public class Method2 implements Runnable{
     @Override

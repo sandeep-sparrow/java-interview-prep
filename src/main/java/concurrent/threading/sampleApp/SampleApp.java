@@ -1,4 +1,4 @@
-package threading.sampleApp;
+package concurrent.threading.sampleApp;
 
 import java.util.ArrayList;
 import java.util.List;
