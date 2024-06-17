@@ -1,4 +1,4 @@
-package threading;
+package concurrent.threading;
 
 import java.math.BigInteger;
 

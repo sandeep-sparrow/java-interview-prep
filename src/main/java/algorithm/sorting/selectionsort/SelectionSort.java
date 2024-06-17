@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class SelectionSort {
     public static void main(String[] args) {
-        int[] myArray1 = {2, 4, 5, 6, 1, 3};
+        int[] myArray1 = {2, 4, 5, 6, 1, 3, 7};
         selectionSort(myArray1);
         System.out.println(Arrays.toString(myArray1));
     }
@@ -20,11 +20,15 @@ public class SelectionSort {
             }
             if(i != minIndex){
                 // swap
-                int temp = myArray1[i];
-                myArray1[i] = myArray1[minIndex];
-                myArray1[minIndex] = temp;
+                swap(myArray1, i, minIndex);
             }
         }
     }
-    
+
+    private static void swap(int[] myArray1, int i, int minIndex) {
+        int temp = myArray1[i];
+        myArray1[i] = myArray1[minIndex];
+        myArray1[minIndex] = temp;
+    }
+
 }

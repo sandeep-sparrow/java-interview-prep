@@ -1,10 +1,8 @@
-package async;
+package concurrent.threading;
 
-public class ContinuationMain {
+public class Main1 {
 
     public static void main(String[] args) {
 
     }
-
-
 }

@@ -1,4 +1,4 @@
-package threading.async;
+package concurrent.threading.async;
 
 import java.util.Random;
 import java.util.concurrent.*;
