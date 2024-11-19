@@ -66,4 +66,14 @@ public class Trie {
         }
         return false;
     }
+
+    public static void main(String[] args) {
+        Trie trie = new Trie();
+        trie.insert("apple");
+        trie.insert("application");
+        trie.insert("apply");
+
+        System.out.println(trie.search("app").toString());
+        System.out.println(trie.search("asp").toString());
+    }
 }

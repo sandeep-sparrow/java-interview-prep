@@ -154,13 +154,13 @@ public static CompletableFuture<Void> testFractionReduction() {
 
         // Create a future that completes when the supplier submitted
         // to the common fork-join pool completes.
-        var future = CompletableFuture
-            // Initiate an concurrent.async task whose supplier multiplies two
-            // large fractions.
-            .supplyAsync(() -> {
+        CompletableFuture<BigFraction> future = CompletableFuture
+                // Initiate an concurrent.async task whose supplier multiplies two
+                // large fractions.
+                .supplyAsync(() -> {
                     BigFraction bf1 = new BigFraction(sF1);
                     BigFraction bf2 = new BigFraction(sF2);
-                    
+
                     // Return the result of multiplying the fractions.
                     return bf1.multiply(bf2);
                 });

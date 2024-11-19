@@ -5,7 +5,8 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Supplier;
 
-import static org.java.action.utils.FuturesCollector.toFuture;
+import static utils.FuturesCollector.toFuture;
+
 
 /**
  * This class asynchronously runs tests that use the Java completable
