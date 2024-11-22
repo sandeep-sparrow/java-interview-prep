@@ -165,7 +165,7 @@ public class BinarySearchTree {
     }
 
 
-    // In-Order Suceccsor Defination : Successor of a given nonde is the node with the smallest key greater than node.val
+    // In-Order Suceccsor Defination : Successor of a given node is the node with the smallest key greater than node.val
     public TreeNode inorderSuccessor(TreeNode node) {
         if (node == null)
             return null;
