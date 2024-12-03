@@ -15,8 +15,15 @@ public class BSTMain {
         bst.insert(82);
 
         // which of this Traversal gives an ascending order of node.value
-        List<Integer> results = bst.DFSInOrder();
+        System.out.println("DFSPreOrder");
+        List<Integer> results = bst.DFSPreOrder();
         for (Integer result : results) {
+            System.out.print(result + " ");
+        }
+
+        System.out.println("\nDFSPreOrderIteration");
+        List<Integer> results_iteration = bst.DFSPreOrderIteration(bst.root);
+        for (Integer result : results_iteration) {
             System.out.print(result + " ");
         }
     }

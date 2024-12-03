@@ -3,6 +3,7 @@ package datastructure.collections.tree.bst;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 public class BinarySearchTree {
 
@@ -98,6 +99,23 @@ public class BinarySearchTree {
             }
         }
         new Traverse(root);
+        return results;
+    }
+
+    // Pre-Order DFS - using iteration
+    public ArrayList<Integer> DFSPreOrderIteration(TreeNode root){
+        TreeNode current = root;
+        Stack<TreeNode> stack = new Stack<>();
+        ArrayList<Integer> results = new ArrayList<>();
+        while(!stack.isEmpty() || current != null){
+            if(current != null){
+                results.add(current.value);
+                stack.push(current.right);
+                current = current.left;
+            } else {
+                current = stack.pop();
+            }
+        }
         return results;
     }
 
