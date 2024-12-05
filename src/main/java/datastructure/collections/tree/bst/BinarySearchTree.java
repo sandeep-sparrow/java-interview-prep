@@ -84,7 +84,7 @@ public class BinarySearchTree {
     }
 
     // Pre-Order DFS - uses recursion
-    public ArrayList<Integer> DFSPreOrder(){
+    public ArrayList<Integer> DFSPreOrderRecursion() {
         ArrayList<Integer> results = new ArrayList<>();
 
         class Traverse{
@@ -119,8 +119,34 @@ public class BinarySearchTree {
         return results;
     }
 
+    // Post-Order DFS - using iteration
+    public ArrayList<Integer> DFSPostOrderIteration(TreeNode root){
+        Stack<TreeNode> stack = new Stack<>();
+        Stack<Boolean> visited = new Stack<>();
+        ArrayList<Integer> results = new ArrayList<>();
+        stack.push(root);
+        visited.push(false);
+        while(!stack.isEmpty()){
+            TreeNode current = stack.pop();
+            Boolean isVisited = visited.pop();
+            if (current != null) {
+                if (isVisited) {
+                    results.add(current.value);
+                } else {
+                    stack.push(current);
+                    visited.push(true);
+                    stack.push(current.right);
+                    visited.push(false);
+                    stack.push(current.left);
+                    visited.push(false);
+                }
+            }
+        }
+        return results;
+    }
+
     // Post-Order DFS - users recursion
-    public ArrayList<Integer> DFSPostOrder(){
+    public ArrayList<Integer> DFSPostOrderRecursion(){
         ArrayList<Integer> results = new ArrayList<>();
 
         class Traverse{
@@ -139,7 +165,7 @@ public class BinarySearchTree {
     }
 
     // In-Order DFS - users recursion
-    public ArrayList<Integer> DFSInOrder(){
+    public ArrayList<Integer> DFSInOrderRecursion(){
         ArrayList<Integer> results = new ArrayList<>();
 
         class Traverse{
@@ -161,7 +187,7 @@ public class BinarySearchTree {
         // Perform an in-order traversal of the tree. This should
         // result in a list of node values in ascending order if
         // the tree is a valid binary search tree (BST).
-        ArrayList<Integer> nodeValues = DFSInOrder();
+        ArrayList<Integer> nodeValues = DFSInOrderRecursion();
         // Start from the second element (index 1) and compare each
         // element with its predecessor to ensure the list is in
         // strictly ascending order. The in-order traversal of a BST
