@@ -14,11 +14,9 @@ public class Question1 {
 
         while((openIndex = input.indexOf('{', openIndex + 1)) != -1){
             closeIndex = input.indexOf('}', openIndex);
-            if (closeIndex != -1 && closeIndex > openIndex){
-                String word = input.substring(openIndex+1, closeIndex);
-                if(!word.contains(String.valueOf('{')) && !word.contains(String.valueOf('}'))){
-                    innerWords.add(word);
-                }
+            String word = input.substring(openIndex + 1, closeIndex);
+            if(!word.contains(String.valueOf('{')) && !word.contains(String.valueOf('}'))){
+                innerWords.add(word);
             }
         }
 
